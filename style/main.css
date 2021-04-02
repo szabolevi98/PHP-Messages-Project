@@ -1,0 +1,28 @@
+body {
+  align-items: center;
+}
+
+.form {
+  width: fit-content;
+  min-width: 350px;
+  margin: auto;
+}
+
+.card {
+  width: 300px !important;
+}
+
+.form-signin {
+  margin: auto;
+}
+
+.form-signin .form-control {
+  position: relative;
+  box-sizing: border-box;
+  height: auto;
+  padding: 10px;
+}
+
+.form-signin .form-control:focus {
+  z-index: 2;
+}

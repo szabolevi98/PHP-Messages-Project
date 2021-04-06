@@ -9,21 +9,21 @@
     require_once "config.php";
 
     $sql = "SELECT
-    messages.id,
-    messages.user_id,
-    messages.subject,
-    messages.message,
-    DATE_FORMAT(messages.message_date, '%Y.%m.%d. %H:%i') AS message_date,
-    messages.answer,
-    DATE_FORMAT(messages.answer_date, '%Y.%m.%d. %H:%i') AS answer_date,
-    users.username
-    FROM
-    messages
-    INNER JOIN users ON messages.user_id = users.id";
+            messages.id,
+            messages.user_id,
+            messages.subject,
+            messages.message,
+            DATE_FORMAT(messages.message_date, '%Y.%m.%d. %H:%i') AS message_date,
+            messages.answer,
+            DATE_FORMAT(messages.answer_date, '%Y.%m.%d. %H:%i') AS answer_date,
+            users.username
+            FROM
+            messages
+            INNER JOIN users ON messages.user_id = users.id";
     if ($_SESSION["admin"] == false) {
         $sql .= " WHERE user_id = ".$_SESSION["id"]."";
     }
-    $sql .= " ORDER BY message_date;";
+    $sql .= " ORDER BY answer ASC, message_date ASC;";
 
     $result = mysqli_query($connection, $sql);
 

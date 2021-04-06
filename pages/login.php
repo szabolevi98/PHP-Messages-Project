@@ -25,7 +25,7 @@
         }
         
         if (empty($username_err) && empty($password_err)) {
-            $sql = "SELECT id, username, password, email, register_date FROM users WHERE username = ?";
+            $sql = "SELECT id, username, password, email, register_date, admin FROM users WHERE username = ?";
             if ($stmt = mysqli_prepare($connection, $sql)) {
                 mysqli_stmt_bind_param($stmt, "s", $param_username);
                 $param_username = $username;
@@ -34,7 +34,7 @@
                     mysqli_stmt_store_result($stmt);
 
                     if (mysqli_stmt_num_rows($stmt) == 1) {                    
-                        mysqli_stmt_bind_result($stmt, $id, $username, $hashed_password, $email, $register_date);
+                        mysqli_stmt_bind_result($stmt, $id, $username, $hashed_password, $email, $register_date, $admin);
                         
                         if (mysqli_stmt_fetch($stmt)){
                             if (password_verify($password, $hashed_password)) {
@@ -43,7 +43,8 @@
                                 $_SESSION["id"] = $id;
                                 $_SESSION["username"] = $username;
                                 $_SESSION["email"] = $email;  
-                                $_SESSION["register_date"] = $register_date;                             
+                                $_SESSION["register_date"] = $register_date;        
+                                $_SESSION["admin"] = $admin;                     
                                 header("location: index.php?page=login");
                             } else {
                                 $login_err = "Hibás felhasználónév vagy jelszó!";

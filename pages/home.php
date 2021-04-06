@@ -8,8 +8,14 @@
 <div class="home">
     <h2 class="font-weight-normal mb-1">Üdvözöllek</h1>
     <h4 class="font-weight-normal"><?php echo htmlspecialchars($_SESSION["username"]); ?></h4>
-    <p><b>Email címed:</b> <?php echo htmlspecialchars($_SESSION["email"]); ?><br>
-    <b>Regisztráltál:</b> <?php echo htmlspecialchars($_SESSION["register_date"]); ?></p>
+    <p><strong>Email címed:</strong> <?php echo htmlspecialchars($_SESSION["email"]); ?><br>
+    <strong>Regisztráltál:</strong> <?php echo htmlspecialchars($_SESSION["register_date"]); ?>
+    <?php 
+        if ($_SESSION["admin"] == true) {
+            echo "<br><strong>Rendszergazda jogosultság:</strong> Igen";
+        }
+    ?>
+    </p>
     <a href="index.php?page=reset-password" class="btn btn-primary btn-block">Jelszó változtatása</a>
     <a href="index.php?page=send-message" class="btn btn-info btn-block">Üzenet írása</a>
     <a href="index.php?page=view-message" class="btn btn-secondary btn-block">

@@ -80,7 +80,7 @@
     <div class="form-group">
         <input type="text" name="username" placeholder="Felhasználónév" class="form-control <?php echo (!empty($username_err)) ? 'is-invalid' : ''; ?>" value="<?php echo $username; ?>">
         <span class="invalid-feedback"><?php echo $username_err; ?></span>
-    </div>    
+    </div>
     <div class="form-group">
         <input type="password" name="password" placeholder="Jelszó" class="form-control <?php echo (!empty($password_err)) ? 'is-invalid' : ''; ?>">
         <span class="invalid-feedback"><?php echo $password_err; ?></span>

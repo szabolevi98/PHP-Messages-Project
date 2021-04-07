@@ -13,7 +13,9 @@
     <?php 
         if ($_SESSION["admin"] == true) {
             echo "<br><strong>Rendszergazda jogosultság:</strong> Igen";
-        }
+        } /* else {
+            echo "<br><strong>Rendszergazda jogosultság:</strong> Nem";
+        } */
     ?>
     </p>
     <a href="index.php?page=reset-password" class="btn btn-primary btn-block">Jelszó változtatása</a>

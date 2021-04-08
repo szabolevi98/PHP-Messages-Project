@@ -21,10 +21,11 @@
             messages
             INNER JOIN users ON messages.user_id = users.id";
     if ($_SESSION["admin"] == false) {
-        $sql .= " WHERE user_id = ".$_SESSION["id"]."";
+        $sql .= " WHERE user_id = ".$_SESSION["id"]." ORDER BY message_date DESC;";
+    } else {
+        $sql .= " ORDER BY answer ASC, message_date ASC;";
     }
-    $sql .= " ORDER BY answer ASC, message_date ASC;";
-
+    
     $result = mysqli_query($connection, $sql);
 
     if ($_SERVER["REQUEST_METHOD"] == "POST") {

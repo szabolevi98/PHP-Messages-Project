@@ -4,7 +4,7 @@
     <link rel="stylesheet" href="style/main.css">
     <link rel="shortcut icon" type="image/x-icon" href="images/favicon.ico" />
     <?php
-        $page = isset($_GET["page"]) ? $_GET["page"] : "";
+        $page = isset($_GET["page"]) ? $_GET["page"] : "no-url";
         switch($page){
             case "home":
                 $title = "Felhasználói panel";
@@ -24,9 +24,9 @@
             case "view-message":
                 $title = "Üzenetek megtekintése";
                 break;
-            case "view-message":
-                    $title = "Üzenetek megtekintése";
-                    break;
+            case "no-url":
+                $title = "Kezdőlap";
+                break;
             default:
                 $title = "404";
 
